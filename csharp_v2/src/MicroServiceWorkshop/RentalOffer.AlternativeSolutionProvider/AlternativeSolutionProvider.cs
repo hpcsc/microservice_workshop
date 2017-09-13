@@ -26,15 +26,14 @@ namespace RentalOffer.AlternativeSolutionProvider
             Console.WriteLine(" [*] {0}", warnings);
             
             jsonPacket["solution"] = "alternative_solution_provider";
-            decimal price = _randomGen.Next(1000, 5000);
             if (jsonPacket["level"] != null)
             {
-                var discountPercent = DetermineDiscount(int.Parse(jsonPacket["level"].ToString()));
-                jsonPacket["discount"] = discountPercent;
-                price = price * discountPercent;
+                jsonPacket["offer"] = DetermineDiscount(int.Parse(jsonPacket["level"].ToString()));
             }
-            jsonPacket["price"] = price;
+
+            jsonPacket["price"] = _randomGen.Next(1000, 5000);
             jsonPacket["frequency"] = Math.Round(_randomGen.NextDouble(), 1);
+
             connection.Publish(jsonPacket.ToString());
         }
 

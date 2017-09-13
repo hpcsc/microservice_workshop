@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalOffer.SolutionSelecti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalOffer.Membership", "..\RentalOffer.Membership\RentalOffer.Membership.csproj", "{2E67468E-D2C4-4AEA-A189-49759B70C6AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalOffer.Joining", "..\RentalOffer.Joining\RentalOffer.Joining.csproj", "{F1782E2A-6E5D-4D10-97CF-11D13C2C59D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{2E67468E-D2C4-4AEA-A189-49759B70C6AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E67468E-D2C4-4AEA-A189-49759B70C6AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E67468E-D2C4-4AEA-A189-49759B70C6AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1782E2A-6E5D-4D10-97CF-11D13C2C59D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1782E2A-6E5D-4D10-97CF-11D13C2C59D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1782E2A-6E5D-4D10-97CF-11D13C2C59D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1782E2A-6E5D-4D10-97CF-11D13C2C59D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
