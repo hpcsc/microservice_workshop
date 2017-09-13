@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using MicroServiceWorkshop.RapidsRivers;
 using MicroServiceWorkshop.RapidsRivers.RabbitMQ;
 using Newtonsoft.Json.Linq;
 
-namespace RentalOffer.SolutionProvider
+namespace RentalOffer.AlternativeSolutionProvider
 {
-    class SolutionProvider : River.IPacketListener
+    class AlternativeSolutionProvider : River.IPacketListener
     {
         static void Main(string[] args)
         {
@@ -20,7 +15,7 @@ namespace RentalOffer.SolutionProvider
             var rapidsConnection = new RabbitMqRapids("monitor_in_csharp", host, port);
             var river = new River(rapidsConnection);
             river.RequireValue("need", "car_rental_offer"); 
-            river.Register(new SolutionProvider());
+            river.Register(new AlternativeSolutionProvider());
         }
 
         public void ProcessPacket(RapidsConnection connection, JObject jsonPacket, PacketProblems warnings)
@@ -28,9 +23,9 @@ namespace RentalOffer.SolutionProvider
             Console.WriteLine(" [*] {0}", warnings);
 
             jsonPacket.Remove("need");
-            jsonPacket["solution"] = "solution_provider";
-            jsonPacket["price"] = 5000;
-            jsonPacket["frequency"] = 0.2;
+            jsonPacket["solution"] = "alternative_solution_provider";
+            jsonPacket["price"] = 3000;
+            jsonPacket["frequency"] = 0.5;
             connection.Publish(jsonPacket.ToString());
         }
 

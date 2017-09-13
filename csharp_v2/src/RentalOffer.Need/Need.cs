@@ -35,7 +35,7 @@ namespace RentalOffer.Need
         private static string NeedPacket()
         {
             return
-                "{\"need\":\"car_rental_offer\"}";
+                $"{{'need':'car_rental_offer', 'id': '{Guid.NewGuid()}'}}";
         }
     }
 }
