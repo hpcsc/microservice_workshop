@@ -12,6 +12,8 @@ namespace RentalOffer.SolutionProvider
 {
     class SolutionProvider : River.IPacketListener
     {
+        private readonly Random _randomGen = new Random(1000);
+
         static void Main(string[] args)
         {
             string host = args[0];
@@ -19,18 +21,18 @@ namespace RentalOffer.SolutionProvider
 
             var rapidsConnection = new RabbitMqRapids("monitor_in_csharp", host, port);
             var river = new River(rapidsConnection);
-            river.RequireValue("need", "car_rental_offer"); 
+            river.RequireValue("need", "car_rental_offer");
+            river.Forbid("solution");
             river.Register(new SolutionProvider());
         }
 
         public void ProcessPacket(RapidsConnection connection, JObject jsonPacket, PacketProblems warnings)
         {
             Console.WriteLine(" [*] {0}", warnings);
-
-            jsonPacket.Remove("need");
+            
             jsonPacket["solution"] = "solution_provider";
-            jsonPacket["price"] = 5000;
-            jsonPacket["frequency"] = 0.2;
+            jsonPacket["price"] = _randomGen.Next(1000, 5000);
+            jsonPacket["frequency"] = Math.Round(_randomGen.NextDouble(), 1);
             connection.Publish(jsonPacket.ToString());
         }
 
