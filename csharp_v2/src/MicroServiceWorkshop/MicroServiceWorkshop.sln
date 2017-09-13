@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServiceWorkshop", "MicroServiceWorkshop.csproj", "{32FE981F-9841-42EB-B4B9-6C0A44D16767}"
 EndProject
@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalOffer.Need", "..\Rent
 	ProjectSection(ProjectDependencies) = postProject
 		{32FE981F-9841-42EB-B4B9-6C0A44D16767} = {32FE981F-9841-42EB-B4B9-6C0A44D16767}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalOffer.SolutionProvider", "..\RentalOffer.SolutionProvider\RentalOffer.SolutionProvider.csproj", "{4D93179D-8F2B-498B-BAE9-F19F77088FD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,8 +44,15 @@ Global
 		{FC0AEEBC-6DEE-4BB7-86D2-605C25A9AE29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC0AEEBC-6DEE-4BB7-86D2-605C25A9AE29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC0AEEBC-6DEE-4BB7-86D2-605C25A9AE29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D93179D-8F2B-498B-BAE9-F19F77088FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D93179D-8F2B-498B-BAE9-F19F77088FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D93179D-8F2B-498B-BAE9-F19F77088FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D93179D-8F2B-498B-BAE9-F19F77088FD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56F0B636-1E04-4337-A353-3F9588A1BB90}
 	EndGlobalSection
 EndGlobal
