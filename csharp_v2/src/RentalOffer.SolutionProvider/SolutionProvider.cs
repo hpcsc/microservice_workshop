@@ -22,6 +22,7 @@ namespace RentalOffer.SolutionProvider
             var rapidsConnection = new RabbitMqRapids("monitor_in_csharp", host, port);
             var river = new River(rapidsConnection);
             river.RequireValue("need", "car_rental_offer");
+            river.Require("level");
             river.Forbid("solution");
             river.Register(new SolutionProvider());
         }
@@ -31,14 +32,34 @@ namespace RentalOffer.SolutionProvider
             Console.WriteLine(" [*] {0}", warnings);
             
             jsonPacket["solution"] = "solution_provider";
-            jsonPacket["price"] = _randomGen.Next(1000, 5000);
+            decimal price = _randomGen.Next(1000, 5000);
+            if (jsonPacket["level"] != null)
+            {
+                var discountPercent = DetermineDiscount(int.Parse(jsonPacket["level"].ToString()));
+                jsonPacket["discount"] = discountPercent;
+                price = price * discountPercent;
+            }
+            jsonPacket["price"] = price;
             jsonPacket["frequency"] = Math.Round(_randomGen.NextDouble(), 1);
             connection.Publish(jsonPacket.ToString());
         }
 
+        private decimal DetermineDiscount(int membershipLevel)
+        {
+            switch (membershipLevel)
+            {
+                case 1:
+                    return 1.2m;
+                case 2:
+                    return 1.4m;
+                default:
+                    return 1m;
+            }
+        }
+
         public void ProcessError(RapidsConnection connection, PacketProblems errors)
         {
-            Console.WriteLine(" [x] {0}", errors);
+            //Console.WriteLine(" [x] {0}", errors);
         }
     }
 }
