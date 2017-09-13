@@ -12,6 +12,8 @@ namespace RentalOffer.Need
 {
     class Need
     {
+        private static readonly Random _randomGen = new Random();
+
         static void Main(string[] args)
         {
             string host = args[0];
@@ -35,7 +37,7 @@ namespace RentalOffer.Need
         private static string NeedPacket()
         {
             return
-                $"{{'need':'car_rental_offer', 'id': '{Guid.NewGuid()}'}}";
+                $"{{'need':'car_rental_offer', 'id': '{Guid.NewGuid()}', 'user_id': {_randomGen.Next(1, 11)}}}";
         }
     }
 }
