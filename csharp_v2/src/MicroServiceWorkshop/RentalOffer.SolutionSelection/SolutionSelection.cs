@@ -25,7 +25,7 @@ namespace RentalOffer.SolutionSelection
 
             var rapidsConnection = new RabbitMqRapids("monitor_in_csharp", host, port);
             var river = new River(rapidsConnection);
-            river.Require("solution");
+            river.Require("solution", "id", "price", "frequency");
             river.Register(new SolutionSelection());
         }
 
